@@ -1,1 +1,22 @@
-<h1> app loading </h1>
+<div ng-controller="postCodeController as postcodeCtrl">
+  <div class="row">
+    <div class="col-sm-12">
+    
+    </div>
+    <div class="col-sm-12">
+      <div ng-repeat="postcode in postcodeCtrl.postcodes track by $index"> 
+        <p> {{postcode.postcodeDescription}} 
+        <form name="userPostcode" ng-controller="submitController as submitCtrl" ng-submit="submitCtrl.submitPostcode(postcode)">
+          <fieldset>
+            <label for="postcodeName" class="col-sm-2 control-label">Postcode:</label>
+            <span class="col-sm-9">
+            <input type="text" class="form-control" id="postcodeName" 
+              placeholder="postcode" ng-model="submitCtrl.postcode.postcodeDescription">
+          </fieldset>
+          <input type="submit" value="submit"/> 
+        </form>
+      </div>  
+    </div><!-- col-sm-12 -->
+
+  </div><!-- row -->
+</div>  
